@@ -1,13 +1,12 @@
 # Directory settings
 SRC_DIR = src
 
-# -I$(SRC_DIR) を追加して、src内のヘッダーを見つけられるようにします
+
 GCC=gcc -Wall -Wextra -Wpedantic -Wformat -Wshadow -Wredundant-decls \
     -Wstrict-prototypes -I$(SRC_DIR)
 
 all: testLabelTable testPass1 testPrintAsBinary assembler stripCR
 
-# 全ての依存関係とソースファイルに $(SRC_DIR)/ を追加しました
 $(SRC_DIR)/assembler.h: $(SRC_DIR)/LabelTableArrayList.h $(SRC_DIR)/getToken.h \
                 $(SRC_DIR)/printFuncs.h $(SRC_DIR)/process_arguments.h \
                 $(SRC_DIR)/names.h $(SRC_DIR)/same.h
